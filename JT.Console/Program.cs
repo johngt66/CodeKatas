@@ -8,9 +8,7 @@ namespace JT.Console
     {
         public static void Main(string[] args)
         {
-
-            var cmds = args.Where(s=>s.)
-            if(args.Contains())
+            RunNextNumber(args);
         }
         public static void RunNextNumber(string[] args)
         {
