@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JT.NextNumber\JT.NextNumber.csproj" />
+    <ProjectReference Include="..\JT.CodeKataClasses\JT.CodeKataClasses.csproj" />
   </ItemGroup>
 
 </Project>
