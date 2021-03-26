@@ -30,13 +30,39 @@ namespace JT.NextNumber
             }
         }
 
-        // To produce the next larger number from existing digits, 
-        // swap the lowest magnitude adjacent digits that are not in descending order
+        public static long NextBiggerNumber(long n)
+        {
+            int i=0, j;
+            var digits = n.ToString().Select(c=>int.Parse(c.ToString())).Reverse().ToList();
+
+            for (i = 1; i < digits.Count; i++)
+                if (digits[i-1] > digits[i])
+                    break;
+
+            if (i == digits.Count) return -1;
+
+            for (j = i-1; j > 0; j--)
+                if (digits[j-1] <= digits[i])
+                    break;
+
+            digits[i] ^= digits[j];
+            digits[j] ^= digits[i];
+            digits[i] ^= digits[j];
+
+            var sdigits = digits.GetRange(0, i).OrderByDescending(d => d);
+            digits.RemoveRange(0, i);
+            digits.InsertRange(0, sdigits);
+
+            var nextNum = digits.Reverse<int>().Aggregate(0L, (a, x) => a = a * 10 + x);
+            return n == nextNum ? -1 : nextNum;
+        }
+
         public static long NextNumber(long n)
         {
             var num = n.ToString();
-            var digits = num.Reverse().ToList<char>();  // capture the digits in reverse order
-            IEnumerable<char> sdigits = null;
+            var digits = num.Reverse()
+                .Select(c => int.Parse(c.ToString())).ToList();  // capture the digits in reverse order
+            IEnumerable<int> sdigits = null;
             for (var i = 0; i < digits.Count() - 1; i++)             //      Compare each digit to the next
             {
                 if (digits[i] > digits[i + 1])                      //      Find first pair that is out of order
@@ -44,18 +70,17 @@ namespace JT.NextNumber
                     digits[i] ^= digits[i + 1];                     //      swap the digits ...
                     digits[i + 1] ^= digits[i];                     //      using old-school, memory-efficient, 
                     digits[i] ^= digits[i + 1];                     //      xor method from the assembler days.
-                    sdigits = digits.GetRange(0, i+1).OrderByDescending(c => c);
+                    sdigits = digits.GetRange(0, i + 1);
                     break;                                          //      only do this once.
                 }
             }
-            if ((sdigits?.Count()??0) > 0)
+            if (sdigits != null)
             {
                 digits.RemoveRange(0, sdigits.Count());
-                digits.InsertRange(0, sdigits);
+                digits.InsertRange(0, sdigits.OrderByDescending(d => d));
             }
-            digits.AsEnumerable().Reverse();
-            string nextNum = string.Join(string.Empty, digits.AsEnumerable().Reverse()); // rebuild the number from the potentially rearranged digits
-            return num.Equals(nextNum, StringComparison.InvariantCultureIgnoreCase) ? -1 : long.Parse(nextNum); // compare to original and return result.
+            var nextNum = digits.Reverse<int>().Aggregate(0L, (a, i) => a = a * 10 + i); // rebuild the number from the potentially rearranged digits
+            return n == nextNum ? -1 : nextNum; // compare to original and return result.
         }
     }
 }
