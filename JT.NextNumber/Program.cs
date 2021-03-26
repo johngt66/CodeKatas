@@ -17,7 +17,7 @@ namespace JT.NextNumber
                 {
                     if (long.TryParse(num, out long n))
                     {
-                        long nextNum = NextNumber(n);
+                        long nextNum = NextBiggerNumber(n);
                         Console.WriteLine($" {n:10} -> {nextNum:10}");
                     }
                     else
@@ -55,32 +55,6 @@ namespace JT.NextNumber
 
             var nextNum = digits.Reverse<int>().Aggregate(0L, (a, x) => a = a * 10 + x);
             return n == nextNum ? -1 : nextNum;
-        }
-
-        public static long NextNumber(long n)
-        {
-            var num = n.ToString();
-            var digits = num.Reverse()
-                .Select(c => int.Parse(c.ToString())).ToList();  // capture the digits in reverse order
-            IEnumerable<int> sdigits = null;
-            for (var i = 0; i < digits.Count() - 1; i++)             //      Compare each digit to the next
-            {
-                if (digits[i] > digits[i + 1])                      //      Find first pair that is out of order
-                {
-                    digits[i] ^= digits[i + 1];                     //      swap the digits ...
-                    digits[i + 1] ^= digits[i];                     //      using old-school, memory-efficient, 
-                    digits[i] ^= digits[i + 1];                     //      xor method from the assembler days.
-                    sdigits = digits.GetRange(0, i + 1);
-                    break;                                          //      only do this once.
-                }
-            }
-            if (sdigits != null)
-            {
-                digits.RemoveRange(0, sdigits.Count());
-                digits.InsertRange(0, sdigits.OrderByDescending(d => d));
-            }
-            var nextNum = digits.Reverse<int>().Aggregate(0L, (a, i) => a = a * 10 + i); // rebuild the number from the potentially rearranged digits
-            return n == nextNum ? -1 : nextNum; // compare to original and return result.
         }
     }
 }
