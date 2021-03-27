@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/JT.NextNumber/JT.NextNumber.csproj",
+                "${workspaceFolder}/JT.RunKata/JT.RunKata.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -19,7 +19,7 @@
             "type": "process",
             "args": [
                 "publish",
-                "${workspaceFolder}/JT.NextNumber/JT.NextNumber.csproj",
+                "${workspaceFolder}/JT.RunKata/JT.RunKata.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],
@@ -32,7 +32,7 @@
             "args": [
                 "watch",
                 "run",
-                "${workspaceFolder}/JT.NextNumber/JT.NextNumber.csproj",
+                "${workspaceFolder}/JT.RunKata/JT.RunKata.csproj",
                 "/property:GenerateFullPaths=true",
                 "/consoleloggerparameters:NoSummary"
             ],

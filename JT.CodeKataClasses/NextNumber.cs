@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Linq;
 
 namespace JT.CodeKataClasses
 {
     public class NextNumber
     {
+
         public static long NextBiggerNumber(long n)
         {
+
             int i = 0, j;
             var digits = n.ToString().Select(c => int.Parse(c.ToString())).Reverse().ToList();
 

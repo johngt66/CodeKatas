@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT.CodeKataClasses", "JT.Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT.CodeKataClasses.Test", "JT.CodeKataClasses.Test\JT.CodeKataClasses.Test.csproj", "{415860A0-6C47-4D74-9A94-08367C51F498}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT.Console", "JT.Console\JT.Console.csproj", "{3CC13657-3A57-4AA1-8B8F-DB41F8688671}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT.RunKata", "JT.RunKata\JT.RunKata.csproj", "{3CC13657-3A57-4AA1-8B8F-DB41F8688671}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
