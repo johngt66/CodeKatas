@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/JT.NextNumber/bin/Debug/net5.0/JT.NextNumber.exe",
+            "program": "${workspaceFolder}/JT.RunKata/bin/Debug/net5.0/JT.RunKata.exe",
             "args": ["1234567890", "12", "513", "2017", "9","111", "531", "abc", "87645321"],
-            "cwd": "${workspaceFolder}/JT.NextNumber",
+            "cwd": "${workspaceFolder}/JT.RunKata",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
             "stopAtEntry": false
