@@ -9,7 +9,7 @@ namespace JT.CliRunner
     {
         public static void Main(string[] args)
         {
-            NextNumber.Run(args);
+            CarMileage.IsInteresting(0,null);
         }
     }
 }
