@@ -1,26 +1,26 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace JT.CodeKataClasses
 {
     public class TheElder
     {
-        public static List<List<int>> BuildMagicRectangle(int r, int c)
+        public static long ElderAge(long n, long m, long k, long newp)
         {
-            List<List<int>> A = new List<List<int>>();
-            var w = r.ToString().Length + 1;
+            long gift = 0L;
 
-            for (var y = 0; y < r; y++)
-            {
-                A.Add(new List<int>());
-                for (var x = 0; x < c; x++)
+            for (var x = 0L; x < n; x++)
+                for (var y = 0L; y < m; y++)
                 {
-                    A[y].Add(x ^ y);
-                    Console.Write($"{A[y][x],4}");
+                    long s = (x ^ y);
+                    // TODO: inspect the bits
+                    gift += s > k ? s-k : 0L;
+                    if (gift >= newp)
+                        gift -= newp;
                 }
-                Console.WriteLine();
-            }
-            return A;
+
+            return gift;
         }
     }
 }
