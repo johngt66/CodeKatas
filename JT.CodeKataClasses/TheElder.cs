@@ -14,8 +14,9 @@ namespace JT.CodeKataClasses
                 for (var y = 0L; y < m; y++)
                 {
                     long s = (x ^ y);
+                    Console.WriteLine();
                     // TODO: inspect the bits
-                    gift += s > k ? s-k : 0L;
+                    gift += (s > k ? s-k : 0L);
                     if (gift >= newp)
                         gift -= newp;
                 }

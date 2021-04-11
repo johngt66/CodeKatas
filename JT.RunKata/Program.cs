@@ -9,7 +9,9 @@ namespace JT.CliRunner
     {
         public static void Main(string[] args)
         {
-            CarMileage.IsInteresting(12344321,null);
+            var t = new temp();
+            var myMsg = Guid.NewGuid().ToString();
+            t.Run(myMsg);
         }
     }
 }
