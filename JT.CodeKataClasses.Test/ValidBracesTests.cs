@@ -13,6 +13,11 @@ namespace JT.CodeKataClasses.Test
             Assert.AreEqual(true, ValidBraces.validBraces("()"));
         }
         [TestMethod]
+        public void Test3()
+        {
+            Assert.AreEqual(true, ValidBraces.validBraces("{()}"));
+        }
+        [TestMethod]
         public void Test2()
         {
 
